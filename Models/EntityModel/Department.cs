@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace WebAPP.Models.EntityModel
+{
+    public class Department
+    {
+        [Key]
+        public int DepartmentId { get; set; }
+        public string DepermentName { get; set; }
+
+        //EmployeeId shoud be foreign key
+        public int EmployeeId { get; set; }
+    }
+}
