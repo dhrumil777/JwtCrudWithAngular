@@ -69,6 +69,23 @@ namespace WebAPP.Service
             //EmployeeVM Emp = new EmployeeVM();
             try
             {
+                //using (var db = new Model.TSContext())
+                //{
+                //    {
+                //        var inv = db.Invoices.Include(s => s.Files).FirstOrDefault(s => s.InvoiceID == id);
+                //        if (inv != null)
+                //        {
+
+                //            db.Entry(inv).State = System.Data.EntityState.Deleted;
+                //            db.SaveChanges();
+                //            return Json(new ViewModel.JsonResponse() { Status = "ok", Message = "Invoice Deleted.!" });
+                //        }
+                //        else
+                //        {
+                //            return Json(new ViewModel.JsonResponse() { Status = "error", Message = "Selected Invoice could not be found.!" });
+                //        }
+                //    }
+                //}
                 return true;
             }
             catch (Exception ex)
