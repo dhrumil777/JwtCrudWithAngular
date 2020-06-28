@@ -53,6 +53,26 @@ namespace WebAPP.Service
             //Save Data Sigle EF Call
             try
             {
+                //using (var ctx = new Entity())
+                //{
+
+                //    Product prodObject = new Product
+                //    {
+                //        PId = //NEW ID,
+                //        SalePrice = salePrice
+                //    };
+
+                //    Product_tax pTax = new Product_tax
+                //    {
+                //        pid = prodObject.PId,
+                //        taxid = taxValue
+                //    };
+
+                //    ctx.product.AddObject(prodObject);
+                //    ctx.Product_tax.AddObject(pTax);
+
+                //    ctx.SaveChanges();
+                //}
                 return true;
             }
             catch (Exception ex)
