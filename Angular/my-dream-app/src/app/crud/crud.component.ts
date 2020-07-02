@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { DataService } from '../Sevice/data.service';
+import { Employee } from './employee';
 @Component({
   selector: 'app-crud',
   templateUrl: './crud.component.html',
@@ -10,7 +11,9 @@ export class CrudComponent implements OnInit {
 
 
   CrudForm : FormGroup;
+  private Emp:Employee = new Employee();
 
+  
   constructor(
     public fb: FormBuilder,
     public crudService: DataService
@@ -20,12 +23,24 @@ export class CrudComponent implements OnInit {
     this.CrudForm = this.fb.group({
       EmployeeName: [''],
       DeparmentName: [''],
+      hobbies:['']
     })
+
+    
+    //this.setDefault();
   }
 
+  // https://stackoverflow.com/questions/49997765/reactive-forms-correctly-convert-form-value-to-model-object
   submitForm(){
-    debugger
-    this.CrudForm.value;
+    debugger;
+    this.Emp = new Employee(this.CrudForm.value);
     debugger;
   }
+
+  setDefault() {
+    this.Emp.EmployeeName="dhrumil";
+    this.Emp.DeparmentName="Computer Eng";
+    this.CrudForm.setValue(this.Emp);
+  }
+
 }

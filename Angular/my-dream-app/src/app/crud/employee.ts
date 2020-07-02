@@ -1,4 +1,8 @@
-export interface IEmployee {
+export class Employee {
+    public constructor(init?: Partial<Employee>) {
+        Object.assign(this, init);
+    }
     EmployeeName:string;
-    Department:string;    
+    DeparmentName:string;
+    hobbies:string;    
 }

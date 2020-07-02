@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpErrorResponse, HttpHeaders } from '@angular/common/http'
-import { IEmployee } from '../crud/employee';
+import { Employee } from '../crud/employee';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -30,8 +30,8 @@ public GetData(){
   //   )
   // } 
 
-  create(employee:IEmployee): Observable<IEmployee> {
-    return this.httpClient.post<IEmployee>(this.apiServer + '/products/', JSON.stringify(employee), this.httpOptions)       
+  create(employee:Employee): Observable<Employee> {
+    return this.httpClient.post<Employee>(this.apiServer + '/products/', JSON.stringify(employee), this.httpOptions)       
   } 
 
 }
