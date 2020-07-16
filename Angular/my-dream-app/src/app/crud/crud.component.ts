@@ -11,20 +11,20 @@ export class CrudComponent implements OnInit {
 
 
   CrudForm : FormGroup;
-  private Emp:Employee = new Employee();
-
-  
+  public Emp:Employee = new Employee()
+  public Employees:any;
+  public enable:boolean=true;
   constructor(
     public fb: FormBuilder,
     public crudService: DataService
   ) { }
 
   ngOnInit(): void {
-    this.CrudForm = this.fb.group({
-      EmployeeName: [''],
-      DeparmentName: [''],
-      hobbies:['']
-    })
+    // this.CrudForm = this.fb.group({
+    //   EmployeeName: [''],
+    //   DeparmentName: [''],
+    //   hobbies:['']
+    // })
 
     
     //this.setDefault();
@@ -33,14 +33,14 @@ export class CrudComponent implements OnInit {
   // https://stackoverflow.com/questions/49997765/reactive-forms-correctly-convert-form-value-to-model-object
   submitForm(){
     debugger;
-    this.Emp = new Employee(this.CrudForm.value);
+    // this.Emp = new Employee(this.CrudForm.value);
     debugger;
   }
 
   setDefault() {
-    this.Emp.EmployeeName="dhrumil";
-    this.Emp.DeparmentName="Computer Eng";
-    this.CrudForm.setValue(this.Emp);
+    // this.Emp.EmployeeName="dhrumil";
+    // this.Emp.DeparmentName="Computer Eng";
+    // this.CrudForm.setValue(this.Emp);
   }
 
 }

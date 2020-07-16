@@ -1,31 +1,35 @@
 
- <form [formGroup]="CrudForm" (ngSubmit)="submitForm()"> 
+ <form #employeeForm="ngForm" (ngSubmit)="submitForm()"> 
     <div class="form-group">
       <label for="EmployeeName">Employee Name</label>
-      <input type="text" formControlName="EmployeeName" class="form-control" id="EmployeeName" aria-describedby="EmployeeName" placeholder="Enter Employee Name">      
-    </div>
-    <div class="form-group">
-      <label for="DeparmentName">Deparment Name</label>
-      <input type="text" formControlName="DeparmentName" class="form-control" id="DeparmentName" aria-describedby="Deparment Name" placeholder="Enter Deparment Name">
-    </div>
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="football" formControlName="hobbies">
-      <label class="form-check-label" for="football">football</label>
+      <input type="text" name="EmployeeName" [(ngModel)]="Emp.EmployeeName" class="form-control" id="EmployeeName" aria-describedby="EmployeeName" placeholder="Enter Employee Name">      
     </div>
 
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="Cricket" formControlName="hobbies">
-      <label class="form-check-label" for="Cricket">cricket</label>
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Male" [(ngModel)]="Emp.Gender">
+      <label class="form-check-label" for="exampleRadios1">
+        Male
+      </label>
     </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Female" [(ngModel)]="Emp.Gender">
+      <label class="form-check-label" for="exampleRadios2">
+       Female
+      </label>
+    </div>
+    <div class="form-check disabled">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+      <label class="form-check-label" for="exampleRadios3">
+        Disabled radio
+      </label>
+    </div>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+
     <button type="submit" class="btn btn-primary">Submit</button>
 </form> 
 
 
-<!-- 
-<form> 
-  <div class="form-group">
-    <label for="EmployeeName">Employee Name</label>
-    <input type="text" [(ngModel)]="Emp.EmployeeName"  class="form-control" id="EmployeeName" aria-describedby="EmployeeName" placeholder="Enter Employee Name">      
-  </div>
-  <button type="submit" class="btn btn-primary" (click)="submitForm(Emp)">Submit</button>
-</form> -->
+{{employeeForm.value | json}}

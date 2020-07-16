@@ -5,4 +5,6 @@ export class Employee {
     EmployeeName:string;
     DeparmentName:string;
     hobbies:string;    
+    Gender:string;
+    Isactive:boolean;
 }
