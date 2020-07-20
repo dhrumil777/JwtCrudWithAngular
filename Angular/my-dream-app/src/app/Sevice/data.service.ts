@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpErrorResponse, HttpHeaders } from '@angular/common/http'
 import { Employee } from '../crud/employee';
 import { Observable } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   
-  private apiServer = "http://localhost:3000";
+  private apiServer = "https://localhost:44331/api/";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -19,19 +20,20 @@ export class DataService {
   private httpClient:HttpClient
   ) { }
 
-public GetData(){
-    return this.httpClient.get("")
+  Post(employee:Employee,controllerName:string): Observable<Employee> {
+    return this.httpClient.post<Employee>(this.apiServer + controllerName +'/PostData/', JSON.stringify(employee), this.httpOptions)       
+  } 
+
+  Get(controllerName:string): Observable<Employee>{
+   return this.httpClient.get<Employee>(this.apiServer + controllerName + '/GetData/',this.httpOptions);
   }
 
-  //  create(product): Observable<Product> {
-  //   return this.httpClient.post<Product>(this.apiServer + '/products/', JSON.stringify(product), this.httpOptions)
-  //   .pipe(
-  //     catchError(this.errorHandler)
-  //   )
-  // } 
+  Delete(Id:number,controllerName:string){    
+    return this.httpClient.get(this.apiServer + controllerName +'/DeleteData/?Id='+Id);       
+  }
 
-  create(employee:Employee): Observable<Employee> {
-    return this.httpClient.post<Employee>(this.apiServer + '/products/', JSON.stringify(employee), this.httpOptions)       
-  } 
+  Edit(Id:number,controllerName:string){
+    return this.httpClient.get<Employee>(this.apiServer + controllerName +'/GetDataById/?Id='+Id);       
+  }
 
 }

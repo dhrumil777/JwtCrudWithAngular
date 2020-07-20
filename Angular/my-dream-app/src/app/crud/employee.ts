@@ -2,9 +2,6 @@ export class Employee {
     public constructor(init?: Partial<Employee>) {
         Object.assign(this, init);
     }
-    EmployeeName:string;
-    DeparmentName:string;
-    hobbies:string;    
-    Gender:string;
-    Isactive:boolean;
+    Name:string;
+    EmployeeId:number;
 }

@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPP", "WebAPP.csproj", "{22F38A56-B11D-453D-9BDE-2EF428C81DFA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "..\DataAccessLayer\DataAccessLayer.csproj", "{D029DDAF-EE7C-43EF-BB88-84A70180EA38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{22F38A56-B11D-453D-9BDE-2EF428C81DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F38A56-B11D-453D-9BDE-2EF428C81DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F38A56-B11D-453D-9BDE-2EF428C81DFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D029DDAF-EE7C-43EF-BB88-84A70180EA38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D029DDAF-EE7C-43EF-BB88-84A70180EA38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D029DDAF-EE7C-43EF-BB88-84A70180EA38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D029DDAF-EE7C-43EF-BB88-84A70180EA38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

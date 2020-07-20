@@ -4,11 +4,14 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebAPP.Models;
+using WebAPP.Models.EntityModel;
 using WebAPP.Service;
 
 namespace WebAPP.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*", exposedHeaders: "*")]
     public class CrudController : ApiController
     {
         readonly CrudService crud;
@@ -44,7 +47,7 @@ namespace WebAPP.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostData(EmployeeVM Emp)
+        public IHttpActionResult PostData(Employee Emp)
         {
             try
             {

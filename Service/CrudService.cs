@@ -4,24 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using WebAPP.Models;
+using WebAPP.Models.EntityModel;
 
 namespace WebAPP.Service
 {
     public class CrudService
-    {        
+    {
+        WebAPP.DataContext.DataContext db;
         public CrudService()
         {
-
+            db = new DataContext.DataContext();
         }
 
-        public List<EmployeeVM> GetData()
+        public List<Employee> GetData()
         {
-            List<EmployeeVM> Emplst = new List<EmployeeVM>();
+            List<Employee> Emplst = new List<Employee>();
             try
             {
-                
+                Emplst = db.Employees.ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //Return the inner exception on ui
                 //store the logs
@@ -32,12 +34,12 @@ namespace WebAPP.Service
             return Emplst;
         }
 
-        public EmployeeVM GetDataById(int Id)
+        public Employee GetDataById(int Id)
         {
-            EmployeeVM Emp = new EmployeeVM();
+            Employee Emp = new Employee();
             try
             {
-
+                Emp = db.Employees.FirstOrDefault(x => x.EmployeeId == Id);
             }
             catch (Exception ex)
             {
@@ -48,11 +50,13 @@ namespace WebAPP.Service
             return Emp;
         }
 
-        public bool PostData(EmployeeVM Emp)
+        public bool PostData(Employee Emp)
         {
             //Save Data Sigle EF Call
             try
             {
+                db.Employees.Add(Emp);
+                db.SaveChanges();
                 //using (var ctx = new Entity())
                 //{
 
@@ -86,26 +90,12 @@ namespace WebAPP.Service
 
         public bool DeleteData(int Id)
         {
-            //EmployeeVM Emp = new EmployeeVM();
             try
             {
-                //using (var db = new Model.TSContext())
-                //{
-                //    {
-                //        var inv = db.Invoices.Include(s => s.Files).FirstOrDefault(s => s.InvoiceID == id);
-                //        if (inv != null)
-                //        {
-
-                //            db.Entry(inv).State = System.Data.EntityState.Deleted;
-                //            db.SaveChanges();
-                //            return Json(new ViewModel.JsonResponse() { Status = "ok", Message = "Invoice Deleted.!" });
-                //        }
-                //        else
-                //        {
-                //            return Json(new ViewModel.JsonResponse() { Status = "error", Message = "Selected Invoice could not be found.!" });
-                //        }
-                //    }
-                //}
+                Employee Emp = new Employee();
+                Emp = db.Employees.FirstOrDefault(x=>x.EmployeeId == Id);
+                db.Employees.Remove(Emp);
+                db.SaveChanges();
                 return true;
             }
             catch (Exception ex)
