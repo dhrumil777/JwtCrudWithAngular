@@ -10,6 +10,11 @@ import { FormsModule } from '@angular/forms';
 import {NgbPaginationModule, NgbAlertModule, NgbDatepicker} from '@ng-bootstrap/ng-bootstrap';
 import { UiSwitchModule } from 'ngx-toggle-switch';
 import { CustomDirective } from './custom.directive';
+import {AngularFireModule } from '@angular/fire'
+import {AngularFirestoreModule } from '@angular/fire/firestore'
+import { from } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +27,8 @@ import { CustomDirective } from './custom.directive';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    UiSwitchModule
+    UiSwitchModule,    
+    AngularFireModule.initializeApp(environment.FirebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]
